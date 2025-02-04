@@ -28,7 +28,7 @@ The challenge helps us identify candidates who can effectively troubleshoot issu
 Please tackle each ticket in a different commit if possible.
 
 ### Support Ticket: Client Booking Visibility Issue 
-- [ ] Please update ticket with findings and proposed solution:
+- [X] Please update ticket with findings and proposed solution:
 ```
 Priority: Critical
 
@@ -65,7 +65,7 @@ Proposed Solution:
 ```
 
 ### Support Ticket: Client Deletion Status Unclear
-- [ ] Please update ticket with findings and proposed solution:
+- [X] Please update ticket with findings and proposed solution:
 ```
 Priority: Medium
 
@@ -112,7 +112,7 @@ Proposed Solution:
 
 ```
 ### SECURITY VULNERABILITY: Client Privacy Concern
-- [ ] Please update ticket with findings and proposed solution:
+- [X] Please update ticket with findings and proposed solution:
 ```
 Priority: Urgent
 
@@ -187,7 +187,7 @@ Proposed Solution:
 ```
 
 ### Support Ticket: Request for Booking Timeline Filter
-- [ ] Please update ticket with findings and proposed solution:
+- [X] Please update ticket with findings and proposed solution:
 ```
 Priority: Low
 
@@ -249,7 +249,7 @@ Proposed Solution:
 ```
 
 ### Support Ticket: System "Freezes" During Client Updates
-- [ ] Please update ticket with findings and proposed solution:
+- [X] Please update ticket with findings and proposed solution:
 ```
 Priority: Low
 
