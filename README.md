@@ -102,6 +102,46 @@ Example from the user (if necessary):
 
 What do I need help with now?:
 Need the technical team to implement proper privacy controls so users can only see their own clients or clients they're specifically assigned to. This is urgent as it's a privacy concern for our business.
+
+--------------------------------------------------------------------------------
+Technical Support Analysis - Daryl Howe | 4th Feb 2025
+
+- Findings:
+    It appears privacy controls have never been implemented - this is new development work.    
+    Ticket states "Need the technical team", I would discuss with team lead / colleague who is responsible for carrying out this work (assuming ticket has been created by Support team).    
+    I would need to confirm / get expansion on what is meant by 'clients they're specifically assigned to' as this suggested we would need to implement a way to assign/unsassign Users to Clients.  
+        
+- Proposed Solutions:       
+    The work related to this ticket could be broken into 2 stages:
+        1. Users should only see Clients that they have created
+            - Concerns: 
+                1. Assigning existing Clients to Users so they don’t lose access when update is rolled out. This is an important element to this item.
+                    - Solution: 
+                        Admins would need to re-assign Users to existing Clients
+                2. Ensuring that new clients are properly linked to the users who create them moving forward.
+        2. Assigning Clients to Users (assuming that this is required)
+
+- Implementation:
+    Database updates:
+	- We need a way to connect/link Clients to Users: 
+	    Create a new DB pivot table (many-to-many) called 'ClientUser'.
+		This table allows Users to be assigned/unassigned to the Clients.
+		This approach allows a single Client to be assigned to multiple users.
+	- We could also track who created the Client (although not necessarily required but may be helpful/used in the future, confirm with product):
+		Add a column on the clients table named 'created_by' or 'created_by_user_id'
+
+    Backend Updates:
+        - Access control:
+            When creating a Client (ClientsController@store), assign authenticated user to the Client via ClientUser pivot table (potentially 'created_by' or 'created_by_user_id' also)
+            When displaying the listing of Clients (ClientsController@index) we should only show Clients assigned to the User (using the ClientUser pivot table). 
+            We need to implement access control on routes such as 'ClientsController@show', 'ClientsController@destroy'
+                Only users who have been assigned to the Client should be able to successfully call these routes (assuming this behaviour for purposes of challenge)
+            We may need to implment roles/permissions for who can assign/unsassign users to and from Clients
+	    
+    Frontend Updates:
+	    We may require a UI component/panel to assign/unassign Users to and from Clients.
+	    Potentially, only an Admin would have access to this page/panel/component.  
+		    
 ```
 
 ### Support Ticket: Request for Booking Timeline Filter
