@@ -191,6 +191,41 @@ Need assessment from the technical team on:
 1. Whether implementing a timeline filter is worth the development resources
 2. How many users might actually use this feature
 3. If this should be prioritized given that only one user has requested it and the current system, while less convenient, still allows users to access all booking information
+
+--------------------------------------------------------------------------------
+Technical Support Analysis - Daryl Howe | 4th Feb 2025
+
+
+Findings:
+1. Whether implementing a timeline filter is worth the development resources:
+    We could consider implmenting this feature if:
+        No items of higher priority exists.
+        This is a very high value client and we believe the feature is of high value to them. 
+        Other users are requesting this feature.
+    A quicker / also effective solution would be to order the bookings by date instead of implementing a filter. 
+
+2. How many users might actually use this feature
+   The research you have already completed is likely the best way to find this out. 
+   Considering asking other members of the support team if they have had Clients requesting a similar feature. Please report back here if it seems like there have been many requests for it.  
+
+3. If this should be prioritized given that only one user has requested it and the current system, while less convenient, still allows users to access all booking information
+    It should not be prioritized as the user is not blocked and they still have the ability to achieve the outcome they desire.
+    It should remain as 'Low' priority until we have further requests for this feature. 
+    If we get more requrest we can raise the priority level.
+    If any of the conditions in Findings - 1 have been met then we should consider prioritising. 
+
+Proposed Solutions:
+   1. Sort the bookings from the farthest future date to the most recent past date
+        - This is the simplest, quickest solution to implment. 
+        - It will make it very easy to see future vs past bookings. 
+        - This solution will likely benifit all Clients and is would be the standard/expect behaviour for this type of listing.
+        - Keep priority for this item as low until further requests come in for it
+        - Discuss with product as currently implmentation is quite bad from UX perspective, I personally believe this update would help/benifit all of our users
+        
+   2. Tracking future requests for this feature
+        - If we many requests for the specific behaviour the customer has requested in the future we should re-open to this ticket  
+   
+   
 ```
 
 ### Support Ticket: System "Freezes" During Client Updates
