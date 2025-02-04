@@ -96,7 +96,7 @@ Proposed Solution:
     Backend:
         Response from ClientsController@destory currently returns 'Deleted' for all scenarios.
         Depending on outcome of ClientsController@destory we should instead be following HTTP response status code conventions https://developer.mozilla.org/en-US/docs/Web/HTTP/Status.
-        This allows the UI to response to the various scenarios which might be encountered (e.g resource is not found, server error, access control/permission denied etc).
+        This allows the UI to responsd to the various scenarios which might be encountered (e.g resource is not found, server error, access control/permission denied etc).
         Consider adding logging for error scenarios (resurce not found, server error etc).
         
     Frontend:
@@ -139,7 +139,7 @@ Findings:
 
 Clarifications:    
 - I would discuss with team lead / colleague to check who is responsible for carrying out this work (assuming the ticket has been created by Support team).    
-- I would get expansion on what is meant by 'clients they're specifically assigned to' as this suggested we would need to implement a way to assign/unsassign Users to Clients.  
+- I would get expansion on what is meant by 'clients they're specifically assigned to' as this is suggesting we need to implement a way to assign/unsassign Users to and from Clients.  
         
 Proposed Solution:       
 - The work related to this ticket could be broken into 2 items:
@@ -148,12 +148,12 @@ Proposed Solution:
         Users should only see Clients that they have created.
         - There are two main scenarios we should consider here: 
                 1. Exising Users/Clients
-                    We must have a way to assigning existing Clients to Users so they don’t lose access when update is rolled out. 
-                    This is an important element to this item.
-                    Possible Solution: 
+                    We must consider how we will assign existing Clients to existing Users so Users doo not loose access to their Client's when update is rolled out. 
+                    Possible Solutions: 
                         - Admins re-assign exisiting Users to existing Clients post rollout.
                         - Exisiting Users loose access to all Clients and must request access.
-                        
+                        - Link existing clients with existing users as part of rollout
+                            - Requires work on Support team side to find out which Clients belong to which Users (likely very time consuming)
                 2. New Users/Clients 
                     Ensuring that new clients are properly linked to the users who create them moving forward.
                     This is more straight forward to implment.
@@ -233,7 +233,7 @@ Responose To Assessment Questions:
     If any of the conditions in responose to your first question have been met then we should consider re-prioritising. 
 
 Proposed Solution:
-   A quicker and also effective solution would be to order the bookings by date instead of implementing a filter. 
+   A quick and effective solution would be to order the bookings by date instead of implementing a filter. 
    1. Sort the bookings from the farthest future date to the most recent past date
         - This is likely the simplest, quickest solution to implment (from development perspective). 
         - This solution will make it very easy to see future vs past bookings. 
