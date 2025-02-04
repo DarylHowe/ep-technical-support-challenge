@@ -253,6 +253,36 @@ Need guidance on whether this is:
 3. A potential local issue with the user's device or internet connection
 
 Note: User mentioned they're working from home using satellite internet, and the issue seems to happen more when their connection is slow.
+
+--------------------------------------------------------------------------------
+Technical Support Analysis - Daryl Howe | 4th Feb 2025
+
+Findings:
+    There does not seem to be a way to update the Clients. 
+        - I have checked routes/controllers/UI    
+                    
+Questions to Support:
+    You asked many questions to the user, could you please report back on their responses.
+    Have we had any other users encounter/report this issue?
+    Can you please explain how we can update Clients (likely directly message / email Support to speed process).
+   
+Proposals:
+    Please ask the user to connect to an alternative stronger internet connection (if possible) and report back. 
+    Unable to offer any other proposal until I can attempt to replicate the issue (Client update function is non existing). 
+
+Additional Info:
+    For purpose of this test I will assume the update functionality is similar to the 'Create Client'.
+    Since the user is on satellite internet their connection may be what is causing the issue. 
+    
+    This is likely a potential local issue with the user's device or internet connection.
+    However, the system could likely be improved by - 
+        When a user clicks save/update
+            - Disable the save/update button to stop users re-submitting request
+            - Display a saving UI component (similar to loading componoent, but when saving/updating data)
+            - Display an updated Toast/notification (after success response)
+            
+    
+
 ```
 
 ## Thank You!!
