@@ -83,6 +83,32 @@ Example from the user (if necessary):
 
 What do I need help with now?:
 Need the development team to add some kind of message or indication that lets users know when a client has been successfully deleted. Right now users are unsure if their action worked or not.
+
+--------------------------------------------------------------------------------
+Technical Support Analysis - Daryl Howe | 4th Feb 2025
+
+- Findings:
+	Upon inspection I can confirm the reported behaviour. 
+
+- Proposed Solutions: 
+    A single ticket item should be suffienct to cover the behaviour required to address the reported issue.
+          
+    Backend:
+        Response from ClientsController@destory currently returns 'Deleted' for all scenarios.
+        Depending on outcome of the destory ClientsController@destory we should instead be following HTTP response status code conventions (assuming team is in agreement - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
+        This allows the UI to response to the various scenarios (e.g resource is not found, server error, access control / permission denied etc)
+        Consider adding logging for error scenarios
+    
+    Frontend:
+        Handle each error response code from ClientsController@destory appropriately. 
+     	If 200/success response from backend is received (i.e the Client was successfully deleted):
+            Display a Toast/notification on the UI stating 'The Client X was successful deleted.' or similar messaging. 
+            Check other parts of the system / system documentation to see if we have a 'Toast' or notification component that we can use for this. 
+            Delete / remove the Client from the listing on UI so the page does not need to be refreshed.
+        Else:
+            Handle the response code scenario appropriately, display a user friendly error message to the user detailing the issue        
+
+
 ```
 ### SECURITY VULNERABILITY: Client Privacy Concern
 - [ ] Please update ticket with findings and proposed solution:
