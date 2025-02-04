@@ -137,6 +137,6 @@ Need guidance on whether this is:
 Note: User mentioned they're working from home using satellite internet, and the issue seems to happen more when their connection is slow.
 ```
 
-## Thank You!
+## Thank You!!
 
 Thank you so much for participating in this tech challenge. Hope you had fun! If you have any questions or suggestions, please email us at development@easypractice.net
