@@ -46,6 +46,23 @@ Example from the user (if necessary):
 
 What do I need help with now?:
 Need guidance on troubleshooting why the booking data isn't being displayed.
+
+--------------------------------------------------------------------------------
+Technical Support Analysis - Daryl Howe | 4th Feb 2025
+
+Findings:
+- After inspecting the code, not being able to view any Client's bookings is the expected system behaviour.
+- An update to the codebase is required to show Client booking on the UI.
+- There is nothing Support can do to troubleshoot the issue - an update is required.
+- The issue lies with the development / technical support team to implement a fix. 
+	
+Proposed Solutions:
+- Technical support developer (or development team, based on business process) should make an update to show Client bookings on the UI.
+- In codebase, the bug/error is in the ClientsController@show method
+- Currently only Client data is passed to the frontend. We need Client data AND Client bookings data to be passed to the frontend. 
+- The UI / frontend code has already been written to display the Client booking information - an update is only required in the ClientsController@show method to achieve the required functionality (ignoring tests / refactoring).
+- As this is a 'Critical' ticket a suggested quick fix has been added to ClientsController@show
+	- As Critical ticket item, this solution ignores tests and refactoring
 ```
 
 ### Support Ticket: Client Deletion Status Unclear
