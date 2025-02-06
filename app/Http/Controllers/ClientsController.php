@@ -9,7 +9,16 @@ class ClientsController extends Controller
 {
     public function index()
     {
-        $clients = Client::all();
+
+        /*
+         * SECURITY VULNERABILITY: Client Privacy Concern
+         * As this ticket is an 'Urgent' item a 'quick fix' has been implemented.
+         * I have ignored refactoring, tests and improve the code structure.
+         * This ticket revolves around Client Privacy which needs to address ASAP (assuming the data is highly confidential).
+         * This fix ignore what would happen to pre-existing users (they would not to be able to see ANY Clients, including those that had created).
+         * This logic is explained further in ticket/proposed solutions.
+         */
+        $clients = auth()->user()->clients;
 
         foreach ($clients as $client) {
             $client->append('bookings_count');
@@ -43,10 +52,12 @@ class ClientsController extends Controller
         $client->name = $request->get('name');
         $client->email = $request->get('email');
         $client->phone = $request->get('phone');
-        $client->adress = $request->get('adress');
+        $client->address = $request->get('address');
         $client->city = $request->get('city');
         $client->postcode = $request->get('postcode');
         $client->save();
+
+        auth()->user()->clients()->attach($client);
 
         return $client;
     }
