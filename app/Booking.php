@@ -13,8 +13,5 @@ class Booking extends Model
         'notes',
     ];
 
-    protected $dates = [
-        'start',
-        'end',
-    ];
+    protected $dates = [];
 }
