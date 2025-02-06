@@ -23,6 +23,11 @@ class Client extends Model
 
     public function bookings(): HasMany
     {
+        /*
+         * Support Ticket: Request for Booking Timeline Filter
+         * As ticket is 'Low' urgency add ordering to Bookings.
+         * This significantly improves UX and solves the customer request very quickly/safely.
+         */
         return $this->hasMany(Booking::class)->orderBy('start', 'desc');
     }
 
