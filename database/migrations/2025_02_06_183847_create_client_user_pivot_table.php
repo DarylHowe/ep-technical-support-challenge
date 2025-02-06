@@ -28,6 +28,6 @@ class CreateClientUserPivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_user_pivot');
+        Schema::dropIfExists('client_user');
     }
 }
