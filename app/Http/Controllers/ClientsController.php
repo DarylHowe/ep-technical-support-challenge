@@ -32,16 +32,26 @@ class ClientsController extends Controller
         return view('clients.create');
     }
 
-    public function show($client)
+
+    public function show($clientId)
     {
         /*
-         * Support Ticket: Client Booking Visibility Issue
-         * As this ticket is a 'Critical' item a 'quick fix' is likely the best approach.
-         * I am not considering cleaning the code or refactoring due to the priority of the ticket.
-         * I'm assuming many of our users are being affected by this issue and a fix needs to be implemented ASAP.
-         * We can address how well the code is written/structured at a later time.
+         * SECURITY VULNERABILITY: Client Privacy Concern
+         * Access Control:
+         * In real world scenario I would check if user has access to Client in another layer (outside of controller).
+         * I've found an access control middleware to be effective in the past.
          */
-        $client = Client::where('id', $client)->with('bookings')->first();
+        $user = auth()->user();
+        $client = Client::where('id', $clientId)
+            ->whereHas('users', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })
+            ->with('bookings')
+            ->first();
+
+        if (!$client) {
+            abort(403, 'Unauthorized access to this Client or Client does not exist.');
+        }
 
         return view('clients.show', ['client' => $client]);
     }

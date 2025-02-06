@@ -14,7 +14,7 @@ class Booking extends Model
     ];
 
     protected $dates = [
-        'start',
-        'end',
+        // 'start',
+        // 'end',
     ];
 }
