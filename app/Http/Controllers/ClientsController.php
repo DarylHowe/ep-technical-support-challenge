@@ -36,6 +36,9 @@ class ClientsController extends Controller
 
     public function show($clientId)
     {
+        // ** Additional Improvements **
+        // Handle access control outside of controller
+
         /*
          * SECURITY VULNERABILITY: Client Privacy Concern
          * Access Control:
@@ -59,6 +62,12 @@ class ClientsController extends Controller
 
     public function store(Request $request)
     {
+        // ** Additional Improvements **
+        // Add validation class and validate user input values i.e. ClientStoreRequest - https://laravel.com/docs/11.x/validation
+        // Create Client Service / Repository class move this code into there (re-usable, easier to test, single responsibility, organisation)
+        // Return ClientResource instead of Client object - https://laravel.com/docs/11.x/eloquent-resources#concept-overview
+        // Wrap in try catch, handle failing scenario
+
         $client = new Client;
         $client->name = $request->get('name');
         $client->email = $request->get('email');
@@ -75,6 +84,14 @@ class ClientsController extends Controller
 
     public function destroy(Request $request, $client): JsonResponse
     {
+        // ** Additional Improvements **
+        // Access control - check if the authenticated use is allowed to delete the Client (could be role, permission or owner based)
+        // Consider non success responses (Client does not exist, user does not have permission to delete, server error)
+        // 'url' in JSON response is following ClientsController@store response logic where we pass URL to UI to load
+        // This is not my preferred approach but fixing this is outside the scope of the challenge, because of this I have
+        // followed the existing format so the code is at least consistent although not idea
+        // Wrap in try catch, handle failing scenario
+
         Client::where('id', $client)->delete();
         return response()->json(['url' => route('clients.index')]);
     }

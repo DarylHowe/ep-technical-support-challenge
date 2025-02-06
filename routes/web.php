@@ -22,6 +22,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'clients'], function () {
+
+    // ** Additional Improvements **
+    // Give all routes a name e.g.  Route::get('/create', 'ClientsController@create')->name('clients.create');
+    // Use Controller class definition instead of string e.g. Route::get('/', [ClientsController::class, 'index'])->name('clients.index');
+    // Replace /{client} with {id} or {clientId} (better readability)
     Route::get('/', 'ClientsController@index')->name('clients.index');
     Route::get('/create', 'ClientsController@create');
     Route::post('/', 'ClientsController@store');

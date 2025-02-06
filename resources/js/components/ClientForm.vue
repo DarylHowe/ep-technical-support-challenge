@@ -2,6 +2,11 @@
     <div>
         <h1 class="mb-6">Clients -> Add New Client</h1>
 
+        <!--
+            ** Additional Improvements **
+            Add frontend form validation
+            Show backend validation error messages
+        -->
         <div class="max-w-lg mx-auto">
             <div class="form-group">
                 <label for="name">Name</label>
