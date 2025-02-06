@@ -41,7 +41,15 @@ export default {
 
     methods: {
         deleteClient(client) {
-            axios.delete(`/clients/${client.id}`);
+            // Disable the 'Delete' button
+            axios.delete(`/clients/${client.id}`).then((response) => {
+                if(response.status === 200){
+                    window.location.href = response.data.url;
+                }else{
+                    // Display on UI message to Client explaining the error.
+                    // Re-enable the 'Delete' button
+                }
+            });
         }
     }
 }

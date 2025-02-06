@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ClientsController extends Controller
@@ -72,10 +73,9 @@ class ClientsController extends Controller
         return $client;
     }
 
-    public function destroy($client)
+    public function destroy(Request $request, $client): JsonResponse
     {
         Client::where('id', $client)->delete();
-
-        return 'Deleted';
+        return response()->json(['url' => route('clients.index')]);
     }
 }
